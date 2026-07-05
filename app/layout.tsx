@@ -14,6 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nichu.dev"),
   title: "Muhammed Nishmal (Cipher Nichu) — Full-Stack Developer",
   description:
     "Muhammed Nishmal (Cipher Nichu) is a self-taught Full-Stack & Systems Developer from Vadakara, Calicut, Kerala. Specializing in high-performance backend engineering, cloud scalability, and custom AI agents.",
@@ -61,12 +62,77 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://nichu.dev/#person",
+        "name": "Muhammed Nishmal",
+        "alternateName": "Cipher Nichu",
+        "jobTitle": "Full-Stack Developer",
+        "url": "https://nichu.dev",
+        "image": "https://nichu.dev/profilepic.png",
+        "sameAs": [
+          "https://github.com/Its-me-nishmal",
+          "https://www.linkedin.com/in/muhammed-nishmalp/",
+          "mailto:dev.nishmal@gmail.com"
+        ],
+        "knowsAbout": [
+          "MERN Stack",
+          "MongoDB",
+          "Express.js",
+          "React",
+          "Node.js",
+          "Next.js",
+          "TypeScript",
+          "Python",
+          "Cloud Infrastructure",
+          "DevOps",
+          "AI Agents",
+          "LangChain",
+          "WhatsApp Automation",
+          "Systems Engineering"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Vadakara",
+          "addressRegion": "Calicut, Kerala",
+          "addressCountry": "India"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nichu.dev/#website",
+        "url": "https://nichu.dev",
+        "name": "Muhammed Nishmal (Cipher Nichu) Portfolio",
+        "description": "Developer portfolio highlighting high-performance backend, cloud architecture, and AI integrations.",
+        "publisher": {
+          "@id": "https://nichu.dev/#person"
+        }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://nichu.dev/#profilepage",
+        "url": "https://nichu.dev",
+        "name": "Muhammed Nishmal (Cipher Nichu) Professional Profile",
+        "mainEntity": {
+          "@id": "https://nichu.dev/#person"
+        }
+      }
+    ]
+  };
+
   return (
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-[#050714] font-sans text-white antialiased overflow-x-hidden">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
