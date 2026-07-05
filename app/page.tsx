@@ -7,6 +7,7 @@ import { Experience } from "@/components/sections/Experience";
 import { AI } from "@/components/sections/AI";
 import { OpenSource } from "@/components/sections/OpenSource";
 import { Contact } from "@/components/sections/Contact";
+import { FAQ } from "@/components/sections/FAQ";
 import { getGitHubUser } from "@/lib/github";
 
 export default async function Home() {
@@ -24,6 +25,7 @@ export default async function Home() {
       <AI />
       <OpenSource />
       <Contact />
+      <FAQ />
 
       <footer className="relative z-10 w-full py-8 text-center border-t border-white/5">
         <p className="text-sm text-white/30">

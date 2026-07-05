@@ -54,6 +54,26 @@ export default function ProjectsClient({ repos }: { repos: GitHubRepo[] }) {
             const gradient = gradients[i % gradients.length];
             const langColor = repo.language ? (LANG_COLORS[repo.language] || "#94a3b8") : "#94a3b8";
 
+            const projectSchema = {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": repo.name,
+              "description": repo.description || "No description provided.",
+              "applicationCategory": "DeveloperApplication",
+              "operatingSystem": "All",
+              "downloadUrl": repo.html_url,
+              "softwareVersion": "1.0.0",
+              "offers": {
+                "@type": "Offer",
+                "price": "0.00",
+                "priceCurrency": "USD"
+              },
+              "author": {
+                "@type": "Person",
+                "@id": "https://nichu.dev/#person"
+              }
+            };
+
             return (
               <motion.div
                 key={repo.id}
@@ -62,6 +82,10 @@ export default function ProjectsClient({ repos }: { repos: GitHubRepo[] }) {
                 transition={{ delay: i * 0.08, duration: 0.6 }}
                 className="card-3d group glass rounded-3xl border border-white/8 overflow-hidden hover:border-violet-400/30 hover:shadow-lg hover:shadow-violet-500/5 transition-all duration-500"
               >
+                <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+                />
                 {/* Gradient top bar */}
                 <div className={`h-0.5 w-full bg-gradient-to-r ${gradient} opacity-60`} />
 
