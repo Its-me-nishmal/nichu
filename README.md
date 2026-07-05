@@ -1,4 +1,4 @@
-# Muhammad Nishmal P - Developer Portfolio
+# Muhammed Nishmal (Cipher Nichu) - Developer Portfolio
 
 A high-performance, minimalist portfolio website built with **Next.js 14+**, **Tailwind CSS**, and **TypeScript**. Designed for speed, accessibility, and professional impact.
 

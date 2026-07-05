@@ -1,13 +1,59 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
-  title: "Muhammad Nishmal P - Full-Stack Developer",
-  description: "Full-Stack Developer specializing in Backend Systems, Cloud Infrastructure, and AI-Assisted Automation.",
+  title: "Muhammed Nishmal (Cipher Nichu) — Full-Stack Developer",
+  description:
+    "Muhammed Nishmal (Cipher Nichu) is a self-taught Full-Stack & Systems Developer from Vadakara, Calicut, Kerala. Specializing in high-performance backend engineering, cloud scalability, and custom AI agents.",
+  keywords: [
+    "Muhammed Nishmal",
+    "Cipher Nichu",
+    "ciphernichu",
+    "its-me-nishmal",
+    "Nishmal Vadakara",
+    "Nishmal Calicut",
+    "Full Stack Developer Kerala",
+    "MERN Stack Developer India",
+    "Backend Developer",
+    "Node.js Systems Engineer",
+    "Next.js Developer",
+    "Cloud Architect",
+    "AI Agent Builder",
+  ],
+  authors: [{ name: "Muhammed Nishmal (Cipher Nichu)" }],
+  icons: {
+    icon: "/profilepic.png",
+    shortcut: "/profilepic.png",
+    apple: "/profilepic.png",
+  },
+  openGraph: {
+    title: "Muhammed Nishmal (Cipher Nichu) — Portfolio",
+    description:
+      "Self-taught Full-Stack Developer building scalable backend systems, WhatsApp automation, and custom AI workflows.",
+    type: "website",
+    url: "https://nichu.dev", // Using the domain from web search context
+    siteName: "Nishmal Portfolio",
+    images: [
+      {
+        url: "/profilepic.png",
+        width: 800,
+        height: 800,
+        alt: "Muhammed Nishmal (Cipher Nichu)",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -16,8 +62,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={cn(inter.variable, "min-h-screen bg-[#fafafa] font-sans text-stone-900 antialiased selection:bg-stone-200")}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable} scroll-smooth`}
+    >
+      <body className="min-h-screen bg-[#050714] font-sans text-white antialiased overflow-x-hidden">
         {children}
       </body>
     </html>
