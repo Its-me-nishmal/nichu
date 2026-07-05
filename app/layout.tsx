@@ -15,6 +15,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nichu.dev"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Muhammed Nishmal (Cipher Nichu) — Full-Stack Developer",
   description:
     "Muhammed Nishmal (Cipher Nichu) is a self-taught Full-Stack & Systems Developer from Vadakara, Calicut, Kerala. Specializing in high-performance backend engineering, cloud scalability, and custom AI agents.",
